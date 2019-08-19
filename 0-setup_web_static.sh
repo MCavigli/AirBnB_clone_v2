@@ -10,7 +10,7 @@ mkdir -p /data/web_static/releases/test
 mkdir -p /data/web_static/shared
 touch /data/web_static/releases/test/index.html
 
-printf "<html>\n<head>\n\t</head>\n\t<body>\n\t\tHolberton School\n\t</body>\n</html>" > /data/web_static/releases/test/index.html
+printf "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\tHolberton School\n\t</body>\n</html>\n" > /data/web_static/releases/test/index.html
 
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu:ubuntu /data/

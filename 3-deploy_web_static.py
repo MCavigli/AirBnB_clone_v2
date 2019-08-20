@@ -43,10 +43,10 @@ def do_pack():
 
 def deploy():
     """Creates and distributes and archive to a server"""
-    arc_path = do_pack()
+    archive_path = do_pack()
     if arc_path is None:
         return False
-    return (do_deploy(arc_path))
+    return (do_deploy(archive_path))
 
 if __name__ == '__main__':
     deploy()

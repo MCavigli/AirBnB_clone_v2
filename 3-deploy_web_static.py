@@ -10,6 +10,18 @@ env.user = 'ubuntu'
 env.hosts = ['35.231.100.106', '35.237.151.115']
 
 
+def do_pack():
+    """ Generates a .tgz archive """
+    local("mkdir -p versions")
+    t = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    archive = local("tar -czvf versions/web_static_{}\
+.tgz web_static".format(t))
+    if archive.succeeded:
+        return ("versions/web_static_{}.tgz".format(t))
+    else:
+        return None
+
+
 def do_deploy(archive_path):
     """Fabric script that distrubutes an archive to server"""
     if os.path.exists(archive_path):
@@ -29,24 +41,9 @@ def do_deploy(archive_path):
         return False
 
 
-def do_pack():
-    """ Generates a .tgz archive """
-    local("mkdir -p versions")
-    t = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    archive = local("tar -czvf versions/web_static_{}\
-.tgz web_static".format(t))
-    if archive.succeeded:
-        return ("versions/web_static_{}".format(t))
-    else:
-        return False
-
-
 def deploy():
     """Creates and distributes and archive to a server"""
     archive_path = do_pack()
-    if archive_path is False:
+    if archive_path is None:
         return False
-    return (do_deploy(archive_path))
-
-if __name__ == '__main__':
-    deploy()
+    return do_deploy(archive_path)

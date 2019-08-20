@@ -44,7 +44,7 @@ def do_pack():
 def deploy():
     """Creates and distributes and archive to a server"""
     archive_path = do_pack()
-    if arc_path is None:
+    if archive_path is None:
         return False
     return (do_deploy(archive_path))
 

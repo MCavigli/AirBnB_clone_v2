@@ -8,7 +8,6 @@ env.user = 'ubuntu'
 env.hosts = ['35.231.100.106', '35.237.151.115']
 
 
-
 def do_deploy(archive_path):
     """Fabric script that distrubutes an archive to server"""
     if os.path.exists(archive_path):

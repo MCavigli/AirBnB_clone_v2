@@ -35,7 +35,7 @@ def do_pack():
     t = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     archive = local("tar -czvf versions/web_static_{}\
 .tgz web_static".format(t))
-    if archive:
+    if archive.succeeded:
         return ("versions/web_static_{}".format(t))
     else:
         return False

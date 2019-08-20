@@ -47,3 +47,6 @@ def deploy():
     if arc_path is None:
         return False
     return (do_deploy(arc_path))
+
+if __name__ = '__main__':
+    deploy()

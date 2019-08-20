@@ -10,6 +10,7 @@ env.hosts = ['35.231.100.106', '35.237.151.115']
 
 def do_clean(number=0):
     """ deletes out of date archives """
+    number = int(number)
     with lcd('/versions'):
         if number == 0 or number == 1:
             local('ls -ltr | head -n -1 | rm -rfv')

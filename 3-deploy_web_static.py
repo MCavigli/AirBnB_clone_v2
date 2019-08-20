@@ -38,13 +38,13 @@ def do_pack():
     if archive:
         return ("versions/web_static_{}".format(t))
     else:
-        return None
+        return False
 
 
 def deploy():
     """Creates and distributes and archive to a server"""
     archive_path = do_pack()
-    if archive_path is None:
+    if archive_path is False:
         return False
     return (do_deploy(archive_path))
 

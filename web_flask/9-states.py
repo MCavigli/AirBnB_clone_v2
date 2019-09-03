@@ -10,24 +10,21 @@ port = 5000
 
 
 @app.route('/states')
-def states_list():
-    # lists the states
-    all_states = list(storage.all(State).values())
-    return (render_template('9-states.html', all_states=all_states))
-
-
 @app.route('/states/<id>')
-def cities_list(id):
-    # lists the states
-    _id = id
-    for state in storage.all(State).values():
-        if state.id == _id:
-            main_state = state
-            break
-#    all_states = list(storage.all(State).values())
-    return (render_template('9-states.html',
-                            main_state=main_state,
-                            _id=_id))
+def cities_list(id=None):
+    # lists the cities based on state id
+    if id:
+        _id = id
+        main_state = None
+        for state in storage.all(State).values():
+            if state.id == _id:
+                main_state = state
+                break
+        if not main_state:
+            _id = None
+    else:
+        all_states = list(storage.all(State).values())
+    return (render_template('9-states.html', **locals()))
 
 
 @app.teardown_appcontext

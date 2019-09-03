@@ -4,6 +4,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy import Column, String
 from os import getenv
+from models.city import City
 
 
 class State(BaseModel, Base):
@@ -27,6 +28,7 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             """returns list of City instances with state_id"""
+            from models import storage
             city_list = []
             for city in storage.all(City).values():
                 if city.state_id == self.id:

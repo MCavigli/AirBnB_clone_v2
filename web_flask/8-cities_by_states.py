@@ -11,7 +11,7 @@ port = 5000
 
 @app.route('/cities_by_states')
 def states_list():
-    # lists the states
+    # lists the states and associated cities
     all_states = list(storage.all(State).values())
     return (render_template('8-cities_by_states.html', all_states=all_states))
 

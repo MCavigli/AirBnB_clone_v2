@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# displays states
+# displays states and associated cities
 from flask import Flask, render_template
 from models import storage
 from models.state import State

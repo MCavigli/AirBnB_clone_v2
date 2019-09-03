@@ -23,7 +23,6 @@ class State(BaseModel, Base):
             passive_deletes=True,
             single_parent=True)
 
-
     if getenv("HBNB_TYPE_STORAGE") == "fs":
         @property
         def cities(self):

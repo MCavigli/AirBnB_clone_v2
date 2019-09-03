@@ -15,6 +15,7 @@ def states_list():
     all_states = list(storage.all(State).values())
     return (render_template('7-states_list.html', all_states=all_states))
 
+
 @app.teardown_appcontext
 def teardown(self):
     # tears down app context

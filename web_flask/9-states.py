@@ -20,9 +20,6 @@ def cities_list(id=None):
             if state.id == _id:
                 main_state = state
                 break
-        if main_state is None:
-            main_state = []
-            _id = None
     else:
         main_state = list(storage.all(State).values())
     return (render_template('9-states.html', **locals()))

@@ -20,7 +20,7 @@ def cities_list(id=None):
             if state.id == _id:
                 main_state = state
                 break
-        if not main_state:
+        if main_state is None:
             main_state = []
             _id = None
     else:

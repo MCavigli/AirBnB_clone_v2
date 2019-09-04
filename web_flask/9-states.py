@@ -21,9 +21,10 @@ def cities_list(id=None):
                 main_state = state
                 break
         if not main_state:
+            main_state = []
             _id = None
     else:
-        all_states = list(storage.all(State).values())
+        main_state = list(storage.all(State).values())
     return (render_template('9-states.html', **locals()))
 
 

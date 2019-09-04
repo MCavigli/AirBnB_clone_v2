@@ -13,10 +13,10 @@
 	    {% endfor %}
 	  </UL>
 
-	{% elif all_states %}
+	{% elif main_state %}
 	  <H1>States</H1>
 	  <UL>
-	  {% for state in all_states|sort(attribute='name') %}
+	  {% for state in main_state|sort(attribute='name') %}
 	    <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
 	  {% endfor %}
 	  </UL>

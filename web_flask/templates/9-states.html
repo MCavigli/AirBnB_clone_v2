@@ -4,7 +4,14 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-	{% if _id %}
+	{% if not _id %}
+	  <H1>States</H1>
+	  <UL>
+	  {% for state in main_state|sort(attribute='name') %}
+	    <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+	  {% endfor %}
+	  </UL>
+	{% elif main_state %}
 	  <H1>State: {{ main_state.name }}</H1>
 	  <H3>Cities:</H3>
           <UL>
@@ -12,15 +19,6 @@
 	      <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
 	    {% endfor %}
 	  </UL>
-
-	{% elif main_state %}
-	  <H1>States</H1>
-	  <UL>
-	  {% for state in main_state|sort(attribute='name') %}
-	    <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-	  {% endfor %}
-	  </UL>
-
 	{% else %}
 	  <H1>Not found!</H1>
 	{% endif %}

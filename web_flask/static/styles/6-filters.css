@@ -62,17 +62,23 @@ button:hover {
     overflow: scroll;
 }
 .amenities .popover {
-    padding: 20px 0;
     margin-left: -5px;
     margin-top: 1%;
 }
 .locations .popover {
     margin-top: 1%;
-    padding: 20px 0;
-    margin-left: -0.5px;
 }
 .popover ul {
     list-style-type: none;
+}
+.amenities li {
+    margin: 7px;
+}
+.locations li {
+    margin: 7px -13px;
+}
+.locations h2 {
+    margin: 18px -3px;
 }
 .amenities:hover .popover,
 .locations:hover .popover {
